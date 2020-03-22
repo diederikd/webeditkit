@@ -1,0 +1,34 @@
+{
+  "name": "webeditkit",
+  "version": "0.1.0",
+  "description": "Projectional web editor integrated with JetBrains MPS",
+  "main": "index.js",
+  "dependencies": {
+    "autocompleter": "^6.0.2",
+    "snabbdom": "^0.7.4",
+    "tsify": "^4.0.1",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "\"echo \\\"No tests present\\\" && true\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Strumenta/webeditkit.git"
+  },
+  "keywords": [
+    "Projectional",
+    "editor",
+    "web",
+    "edito",
+    "JetBrains",
+    "MPS"
+  ],
+  "author": "Federico Tomassetti, Strumenta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Strumenta/webeditkit/issues"
+  },
+  "homepage": "https://github.com/Strumenta/webeditkit#readme"
+}
