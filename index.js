@@ -28,56 +28,17 @@ const verticalCollectionCell = cells.verticalCollectionCell;
 const childCell = cells.childCell;
 const webeditkit = require('./webeditkit');
 
-/////////////////////////////////////////////////
-// Specific renderers - start
-/////////////////////////////////////////////////
+module.exports.renderDataModels = webeditkit.renderDataModels;
+module.exports.loadDataModel = webeditkit.loadDataModel;
 
-registerRenderer("com.strumenta.financialcalc.Input", function(modelNode) {
-    if (modelNode == undefined) {
-        throw "modelNode should not be undefined in renderer";
-    }
-    return horizontalGroupCell(
-        editableCell(modelNode, "name"),
-        fixedCell("of type", ["keyword"], null, function(){
-            modelNode.deleteMe();
-        }),
-        childCell(modelNode, "type"));
-});
-
-registerRenderer("com.strumenta.financialcalc.StringType", function(modelNode) {
-    return fixedCell("string", ["type"], null, function(){
-        modelNode.deleteMe();
-    });
-});
-
-registerRenderer("com.strumenta.financialcalc.BooleanType", function(modelNode) {
-    return fixedCell("boolean", ["type"], null, function(){
-        modelNode.deleteMe();
-    });
-});
-
-registerRenderer("com.strumenta.financialcalc.FinancialCalcSheet", function(modelNode) {
-    return verticalGroupCell(
-        row(
-            fixedCell("Calculations", ["title"]),
-            editableCell(modelNode, "name", ["title"])
-        ),
-        emptyRow(),
-        row(
-            fixedCell("inputs:", ["strong"])
-        ),
-        row(
-            tabCell(),
-            verticalCollectionCell(modelNode, 'inputs'))
-    );
-});
-
-/////////////////////////////////////////////////
-// Specific renderers - end
-/////////////////////////////////////////////////
-
-$('document').ready(function(){
+function setup() {
     uiutils.installAutoresize();
-    wscommunication.WsCommunication.createInstance("ws://localhost:2904/socket", "com.strumenta.financialcalc.sandbox.company", "calc");
-    webeditkit.loadDataModel("http://localhost:2904", "com.strumenta.financialcalc.sandbox.company", "324292001770075100", "calc");
-});
+}
+
+function addModel(url, modelName, rootId, localName) {
+    wscommunication.WsCommunication.createInstance("ws://" + url + "/socket", modelName, localName);
+    webeditkit.loadDataModel("http://" + url, modelName, rootId, localName);
+}
+
+module.exports.setup = setup;
+module.exports.addModel = addModel;
