@@ -7,16 +7,16 @@ var patch = snabbdom.init([ // Init patch function with chosen modules
 ]);
 var h = require('snabbdom/h').default; // helper function for creating vnodes
 const toVNode = require('snabbdom/tovnode').default;
-const uiutils = require('./uiutils');
-const datamodel = require('./datamodel');
-const wscommunication = require('./wscommunication');
+const uiutils = require('./src/uiutils');
+const datamodel = require('./src/datamodel');
+const wscommunication = require('./src/wscommunication');
 const autocomplete = require('autocompleter/autocomplete');
 
-const renderers = require('./renderer');
+const renderers = require('./src/renderer');
 const registerRenderer = renderers.registerRenderer;
 const renderModelNode = renderers.renderModelNode;
 
-const cells = require('./cells');
+const cells = require('./src/cells');
 const editableCell = cells.editableCell;
 const fixedCell = cells.fixedCell;
 const row = cells.row;
@@ -26,7 +26,7 @@ const verticalGroupCell = cells.verticalGroupCell;
 const horizontalGroupCell = cells.horizontalGroupCell;
 const verticalCollectionCell = cells.verticalCollectionCell;
 const childCell = cells.childCell;
-const webeditkit = require('./webeditkit');
+const webeditkit = require('./src/webeditkit');
 
 module.exports.renderDataModels = webeditkit.renderDataModels;
 module.exports.loadDataModel = webeditkit.loadDataModel;

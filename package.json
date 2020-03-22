@@ -16,7 +16,8 @@
     "typescript": "^3.8.3"
   },
   "scripts": {
-    "test": "\"echo \\\"No tests present\\\" && true\""
+    "test": "\"echo \\\"No tests present\\\" && true\"",
+    "prepack": "tsc"
   },
   "repository": {
     "type": "git",
