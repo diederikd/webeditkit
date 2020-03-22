@@ -10,7 +10,7 @@ const toVNode = require('snabbdom/tovnode').default;
 const uiutils = require('./uiutils');
 const datamodel = require('./datamodel');
 const wscommunication = require('./wscommunication');
-const autocomplete = require('autocompleter');
+const autocomplete = require('autocompleter/autocomplete');
 
 const renderers = require('./renderer');
 const registerRenderer = renderers.registerRenderer;

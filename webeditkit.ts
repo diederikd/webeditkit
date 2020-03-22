@@ -2,7 +2,7 @@ const datamodel = require('./datamodel');
 
 const renderers = require('./renderer');
 
-var snabbdom = require('snabbdom/snabbdom');
+var snabbdom = require('snabbdom');
 var patch = snabbdom.init([ // Init patch function with chosen modules
     require('snabbdom/modules/class').default, // makes it easy to toggle classes
     require('snabbdom/modules/props').default, // for setting properties on DOM elements
